@@ -22,8 +22,8 @@
               </v-col>
               <v-col>
                 <employee-add-form-container
-                  title="Personal Info"
-                  titleIcon="mdi-account"
+                  title="Personal info"
+                  titleIcon="mdi-account-outline"
                   id="personalInfo"
                   v-intersect="{
                     handler: intersectionHandler,
@@ -37,14 +37,13 @@
                   <employee-add-personal-info
                     @update:employeename="updateEmployeeNameHandler"
                     ref="employeeFormPersonalInfo"
-                    :rules="rules"
                   />
                 </employee-add-form-container>
 
                 <employee-add-form-container
                   id="contactInfo"
-                  title="Contact Info"
-                  titleIcon="mdi-account-box"
+                  title="Contact info"
+                  titleIcon="mdi-account-box-outline"
                   v-intersect="{
                     handler: intersectionHandler,
                     options: {
@@ -74,8 +73,8 @@
                 </employee-add-form-container>
 
                 <employee-add-form-container
-                  title="Job Info"
-                  titleIcon="mdi-briefcase"
+                  title="Job info"
+                  titleIcon="mdi-briefcase-outline"
                   id="jobInfo"
                   v-intersect="{
                     handler: intersectionHandler,
@@ -87,6 +86,21 @@
                   }"
                 >
                   <employee-add-job-info />
+                </employee-add-form-container>
+                <employee-add-form-container
+                  title="Compensation"
+                  titleIcon="mdi-clipboard-text-outline"
+                  id="compensationInfo"
+                  v-intersect="{
+                    handler: intersectionHandler,
+                    options: {
+                      root: null,
+                      rootMargin: '0px 0px -50% 0px',
+                      threshold: 1.0,
+                    },
+                  }"
+                >
+                  <employee-add-compensation-info />
                 </employee-add-form-container>
               </v-col>
             </v-row>
@@ -108,6 +122,7 @@ import EmployeeAddContactInfo from "../components/EmployeeAddContactInfo.vue";
 import EmployeeAddAddressInfo from "../components/EmployeeAddAddressInfo.vue";
 import EmployeeAddJobInfo from "../components/EmployeeAddJobInfo.vue";
 import EmployeeAddSidebar from "../components/EmployeeAddSidebar.vue";
+import EmployeeAddCompensationInfo from "../components/EmployeeAddCompensationInfo.vue";
 const defaultImgUrl = require("@/assets/images/EmployeeDefaultDp.svg");
 let aborter = null; // make the aborter accessible
 
@@ -120,22 +135,13 @@ export default {
     EmployeeAddAddressInfo,
     EmployeeAddJobInfo,
     EmployeeAddSidebar,
+    EmployeeAddCompensationInfo,
   },
   data: function () {
     return {
       imageUrl: null,
       activeNav: "",
-      rules: {
-        required: (value) => !!value || "Required.",
-        email: (value) => {
-          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return pattern.test(value) || "Invalid e-mail.";
-        },
-        phone: (value) => {
-          const pattern = /^[0-9]{11}$/;
-          return pattern.test(value) || "Invalid phone.";
-        },
-      },
+
       snackModel: false,
       formfields: {
         employee_dob: null,

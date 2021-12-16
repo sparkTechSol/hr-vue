@@ -3,6 +3,7 @@
     <v-row dense>
       <v-col cols="12" sm="6">
         <v-autocomplete
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-map-marker"
           dense
           filled
@@ -12,6 +13,7 @@
       </v-col>
       <v-col cols="12" sm="6">
         <v-autocomplete
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-office-building-marker"
           dense
           filled
@@ -26,6 +28,7 @@
     <v-row dense>
       <v-col sm="4" cols="12">
         <v-autocomplete
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-file-account"
           filled
           rounded
@@ -35,6 +38,7 @@
       </v-col>
       <v-col sm="4" cols="12">
         <v-autocomplete
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-chair-rolling"
           filled
           rounded
@@ -44,6 +48,7 @@
       </v-col>
       <v-col sm="4" cols="12">
         <the-date-picker
+          :rules="[validationRules.required]"
           v-model="jobInformation.employee_hire_date"
           dense
           rounded
@@ -66,9 +71,11 @@
 </template>
 
 <script>
+import validationRules from "@/mixins/validationMixin";
 import TheDatePicker from "./TheDatePicker.vue";
 export default {
   components: { TheDatePicker },
+  mixins: [validationRules],
   data: function () {
     return {
       jobInformation: {
@@ -79,5 +86,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

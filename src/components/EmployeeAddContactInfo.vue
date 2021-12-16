@@ -4,6 +4,7 @@
     <v-row dense>
       <v-col cols="12" sm="6">
         <v-text-field
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-cellphone"
           dense
           rounded
@@ -14,6 +15,7 @@
       </v-col>
       <v-col cols="12" sm="6">
         <v-text-field
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-phone"
           dense
           rounded
@@ -27,6 +29,7 @@
     <v-row dense>
       <v-col cols="12" sm="6">
         <v-text-field
+          :rules="[validationRules.required, validationRules.email]"
           prepend-inner-icon="mdi-email"
           dense
           rounded
@@ -40,8 +43,10 @@
 </template>
 
 <script>
-export default {};
+import validationRules from "@/mixins/validationMixin";
+export default {
+  mixins: [validationRules],
+};
 </script>
 
-<style>
-</style>
+<style></style>

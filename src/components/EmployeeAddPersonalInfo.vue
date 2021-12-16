@@ -3,7 +3,7 @@
     <v-row dense>
       <v-col cols="12">
         <v-text-field
-          :rules="[rules.required]"
+          :rules="[validationRules.required]"
           dense
           filled
           rounded
@@ -24,22 +24,23 @@
           filled
           clearable
           readonly
+          :rules="[validationRules.required]"
           prepend-inner-icon="mdi-calendar"
           v-model="personalInformation.employee_dob"
         />
       </v-col>
       <v-col cols="12" sm="6">
-        <v-autocomplete
+        <v-select
           dense
           rounded
           prepend-inner-icon="mdi-ring"
-          :rules="[rules.required]"
+          :rules="[validationRules.required]"
           v-model.trim="personalInformation.marital_status_id"
           label="Marital status"
           filled
           :items="['Single', 'Married']"
         >
-        </v-autocomplete>
+        </v-select>
       </v-col>
     </v-row>
     <v-row dense>
@@ -49,6 +50,7 @@
           placeholder="e.g 102202"
           label="SSN/CNIC"
           dense
+          :rules="[validationRules.required]"
           v-model.number.trim="personalInformation.employee_ssn"
           filled
           rounded
@@ -61,7 +63,7 @@
           class="ma-0"
           prepend-icon="mdi-gender-male-female"
           label="Choose gender"
-          :rules="[rules.required]"
+          :rules="[validationRules.required]"
           row
           dense
           v-model="personalInformation.employee_gender"
@@ -76,15 +78,12 @@
 
 <script>
 import TheDatePicker from "./TheDatePicker.vue";
+import validationMixins from "@/mixins/validationMixin";
 export default {
+  mixins: [validationMixins],
   components: { TheDatePicker },
   name: "EmployeeAddPersonalInfo",
-  props: {
-    rules: {
-      type: Object,
-      required: true,
-    },
-  },
+
   data: function () {
     return {
       dob_menu: false,
@@ -122,5 +121,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
