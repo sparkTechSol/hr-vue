@@ -16,17 +16,11 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   routes,
-  // scrollBehavior: (to, from, savedPosition) => {
-  //   let scrollTo = 0
-
-  //   if (to.hash) {
-  //     scrollTo = to.hash
-  //   } else if (savedPosition) {
-  //     scrollTo = savedPosition.y
-  //   }
-
-  //   return goTo(scrollTo)
-  // },
+  // scrollBehavior(to, from, savedPosition) {
+  //   if (savedPosition) return savedPosition;
+  //   // if (to.hash) return { selector: to.hash };
+  //   return { x: 0, y: 0 };
+  // }
 })
 
 export default router

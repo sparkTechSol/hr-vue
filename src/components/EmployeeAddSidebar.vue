@@ -14,7 +14,7 @@
         v-slot="{ href, isActive }"
       >
         <v-list-item
-          @click.stop="navLinkClick(hash)"
+          @click.stop="navLinkClick(item.hash)"
           :href="href"
           class="text-body-2 text--secondary"
           :class="{ 'v-list-item--active': isActive }"
