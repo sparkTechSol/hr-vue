@@ -206,6 +206,11 @@ export default {
         this.$store.commit("employees/ADD_EMPLOYEE", this.formfields);
         this.snackModel = true;
         this.$refs.employeeAddForm.reset();
+      } else {
+        const inputs = this.$refs.employeeAddForm.inputs.reverse();
+        inputs.forEach((input) => {
+          if (!input.valid) input.focus();
+        });
       }
     },
   },
