@@ -12,6 +12,15 @@ export default {
 
         },
         {
+            path: 'login',
+            name: 'user.login',
+            meta: {
+                layout: 'default'
+            },
+            component: () => import(/* webpackChunkName: "user.home" */ '@/views/UserLogin'),
+
+        },
+        {
             path: 'employee',
             name: 'dash.employee',
             component: () => import(/* webpackChunkName: "user.account" */ '@/views/EmployeeAll'),
@@ -20,7 +29,14 @@ export default {
         {
             path: 'employee/add',
             name: 'dash.employee.add',
-            component: () => import(/* webpackChunkName: "user.account" */ '@/views/EmployeeAdd'),
+            component: () => import(/* webpackChunkName: "employee.add" */ '@/views/EmployeeAdd'),
+
+        }
+        ,
+        {
+            path: 'employee/edit/:empid',
+            name: 'dash.employee.edit',
+            component: () => import(/* webpackChunkName: "employee.edit" */ '@/views/EmployeeAdd'),
 
         }
     ]

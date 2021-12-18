@@ -72,7 +72,7 @@
 
 <script>
 import validationRules from "@/mixins/validationMixin";
-import TheDatePicker from "./TheDatePicker.vue";
+import TheDatePicker from "../TheDatePicker.vue";
 export default {
   components: { TheDatePicker },
   mixins: [validationRules],

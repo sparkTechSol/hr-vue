@@ -226,9 +226,14 @@ export default {
     },
 
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item);
-      this.editedItem = Object.assign({}, item);
-      this.dialog = true;
+      if (this.$route.name !== "dash.employee.edit")
+        this.$router.push({
+          name: "dash.employee.edit",
+          params: { empid: item.name },
+        });
+      // this.editedIndex = this.desserts.indexOf(item);
+      // this.editedItem = Object.assign({}, item);
+      // this.dialog = true;
     },
 
     deleteItem(item) {

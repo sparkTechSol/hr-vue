@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import TheDatePicker from "./TheDatePicker.vue";
+import TheDatePicker from "../TheDatePicker.vue";
 import validationMixins from "@/mixins/validationMixin";
 export default {
   mixins: [validationMixins],

@@ -116,13 +116,13 @@
 
 <script>
 import EmployeeDpPicker from "../components/EmployeeDpPicker.vue";
-import EmployeeAddPersonalInfo from "../components/EmployeeAddPersonalInfo.vue";
-import EmployeeAddFormContainer from "../components/EmployeeAddFormContainer.vue";
-import EmployeeAddContactInfo from "../components/EmployeeAddContactInfo.vue";
-import EmployeeAddAddressInfo from "../components/EmployeeAddAddressInfo.vue";
-import EmployeeAddJobInfo from "../components/EmployeeAddJobInfo.vue";
-import EmployeeAddSidebar from "../components/EmployeeAddSidebar.vue";
-import EmployeeAddCompensationInfo from "../components/EmployeeAddCompensationInfo.vue";
+import EmployeeAddPersonalInfo from "../components/employeeAdd/EmployeeAddPersonalInfo.vue";
+import EmployeeAddFormContainer from "../components/employeeAdd/EmployeeAddFormContainer.vue";
+import EmployeeAddContactInfo from "../components/employeeAdd/EmployeeAddContactInfo.vue";
+import EmployeeAddAddressInfo from "../components/employeeAdd/EmployeeAddAddressInfo.vue";
+import EmployeeAddJobInfo from "../components/employeeAdd/EmployeeAddJobInfo.vue";
+import EmployeeAddSidebar from "../components/employeeAdd/EmployeeAddSidebar.vue";
+import EmployeeAddCompensationInfo from "../components/employeeAdd/EmployeeAddCompensationInfo.vue";
 const defaultImgUrl = require("@/assets/images/EmployeeDefaultDp.svg");
 let aborter = null; // make the aborter accessible
 

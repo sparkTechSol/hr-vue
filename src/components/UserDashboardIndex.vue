@@ -1,7 +1,10 @@
 <template>
   <div style="height: 100%">
-    <the-appbar />
-    <the-sidebar />
+    <template v-if="$route.meta.layout !== 'default'">
+      <the-appbar />
+      <the-sidebar />
+    </template>
+
     <div class="pa-5" style="height: 100%; overflow: hidden">
       <transition name="slide-x-transition" mode="out-in">
         <router-view :key="$route.path" />
@@ -38,6 +41,9 @@ export default {
     return {
       drawer: null,
     };
+  },
+  created() {
+    console.log(this.$route);
   },
 };
 </script>
